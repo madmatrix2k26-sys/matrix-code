@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MADMATRIX EXAM PORTAL - Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1a1b26;
+            color: #a9b1d6;
+            font-family: 'Roboto Mono', monospace;
+            min-height: 100vh;
+        }
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .content-wrapper {
+            padding: 2rem;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: #c0caf5;
+            font-size: 2.5rem;
+        }
+        .panel {
+            background-color: #24283b;
+            border: 1px solid #3b4261;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+        .panel-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #7aa2f7;
+            margin-bottom: 1.5rem;
+        }
+        .form-input {
+            background-color: #1a1b26;
+            border: 1px solid #3b4261;
+            color: #a9b1d6;
+            border-radius: 0.25rem;
+        }
+        .form-input:focus {
+            background-color: #1a1b26;
+            border-color: #7aa2f7;
+            outline: none;
+            box-shadow: 0 0 10px rgba(122, 162, 247, 0.5);
+        }
+        .btn-primary {
+            background-color: #41a6b5;
+            color: #1a1b26;
+            font-weight: bold;
+            border: none;
+            transition: background-color 0.3s;
+            border-radius: 0.25rem;
+        }
+        .btn-primary:hover {
+            background-color: #56b9c9;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        .table {
+            min-width: 100%;
+            divide-y divide-gray-700;
+        }
+        .table-header {
+            background-color: #1f202e;
+        }
+        .table th {
+            color: #c0caf5;
+        }
+        .table-row:hover {
+            background-color: #292e42;
+        }
+        .footer {
+            padding: 2rem;
+            text-align: center;
+            color: #565f89;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="header">
+            <h1>MADMATRIX ADMIN PORTAL</h1>
+        </div>
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-5">
+            <div class="lg:col-span-2 panel">
+                <h2 class="panel-title">Register Student</h2>
+                <form id="register-form" class="space-y-4">
+                    <div>
+                        <input id="student-email" type="email" required class="w-full px-3 py-2 form-input" placeholder="Student Email">
+                    </div>
+                    <div>
+                        <input id="student-password" type="text" required class="w-full px-3 py-2 form-input" placeholder="Set Password">
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full px-4 py-2 btn-primary">
+                            Register Student
+                        </button>
+                    </div>
+                </form>
+                <div id="password-display" class="mt-4 text-green-400"></div>
+            </div>
+            <div class="lg:col-span-3 panel">
+                <h2 class="panel-title">Live Leaderboard</h2>
+                <div class="table-container">
+                    <table id="leaderboard" class="table">
+                        <thead class="table-header">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left uppercase">Email</th>
+                                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left uppercase">Password</th>
+                                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left uppercase">Score</th>
+                                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left uppercase">Violations</th>
+                                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left uppercase">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-body" class="divide-y divide-gray-700">
+                            <!-- Rows will be dynamically injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        INCOGNITO HACK DEVELOPER
+    </footer>
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

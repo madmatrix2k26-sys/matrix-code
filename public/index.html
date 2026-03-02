@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MADMATRIX EXAM PORTAL - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1a1b26;
+            color: #a9b1d6;
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .login-box {
+            background-color: #24283b;
+            border: 1px solid #3b4261;
+            border-radius: 0.5rem;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 400px;
+        }
+        .form-input {
+            background-color: #1a1b26;
+            border: 1px solid #3b4261;
+            color: #a9b1d6;
+            border-radius: 0.25rem;
+        }
+        .form-input:focus {
+            background-color: #1a1b26;
+            border-color: #7aa2f7;
+            outline: none;
+            box-shadow: 0 0 10px rgba(122, 162, 247, 0.5);
+        }
+        .btn-primary {
+            background-color: #41a6b5;
+            color: #1a1b26;
+            font-weight: bold;
+            border: none;
+            transition: background-color 0.3s;
+            border-radius: 0.25rem;
+        }
+        .btn-primary:hover {
+            background-color: #56b9c9;
+        }
+        .btn-secondary {
+            color: #7aa2f7;
+            transition: color 0.3s;
+        }
+        .btn-secondary:hover {
+            color: #9ecef0;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 1.5rem;
+            text-align: center;
+            color: #565f89;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center mb-8">
+        <h1 class="text-5xl font-bold font-orbitron text-c0caf5">MADMATRIX</h1>
+        <p class="text-lg text-7aa2f7">EXAM PORTAL</p>
+    </div>
+    <div class="login-box">
+        <h2 class="text-2xl font-bold text-center text-c0caf5 mb-6">Participant Login</h2>
+        <form id="login-form" class="space-y-6">
+            <div class="space-y-4 rounded-md">
+                <div>
+                    <input id="email" name="email" type="email" autocomplete="email" required class="w-full px-3 py-2 form-input" placeholder="Email address">
+                </div>
+                <div>
+                    <input id="password" name="password" type="password" autocomplete="current-password" required class="w-full px-3 py-2 form-input" placeholder="Password">
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="w-full px-4 py-2 btn-primary">
+                    Sign In
+                </button>
+            </div>
+        </form>
+        <div class="text-center mt-6">
+            <button id="admin-login-btn" class="text-sm font-medium btn-secondary">
+                Admin Login
+            </button>
+        </div>
+    </div>
+    <footer class="footer">
+        INCOGNITO HACK DEVELOPER
+    </footer>
+    <script type="module" src="login.js"></script>
+</body>
+</html>

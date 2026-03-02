@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "matrix-code-37708562-32a3c",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

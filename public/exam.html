@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MADMATRIX EXAM PORTAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1a1b26;
+            color: #a9b1d6;
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #1f202e;
+            border-bottom: 1px solid #3b4261;
+        }
+        .header h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: #c0caf5;
+            font-size: 1.5rem;
+        }
+        #timer {
+            color: #f7768e;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr;
+            flex-grow: 1;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            width: 100%;
+            height: calc(100vh - 120px); /* Adjust based on header/footer height */
+        }
+        .panel {
+            background-color: #24283b;
+            border: 1px solid #3b4261;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .panel-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #7aa2f7;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #3b4261;
+            padding-bottom: 0.5rem;
+        }
+        #problem-description {
+            margin-top: 1rem;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+        #buggy-code-container, #editor-container, #output-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        #buggy-code, #editor, #terminal {
+            flex-grow: 1;
+            background-color: #1a1b26;
+            color: #a9b1d6;
+            border: 1px solid #3b4261;
+            border-radius: 4px;
+            padding: 1rem;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            resize: none;
+            height: 100%;
+        }
+        #editor:focus {
+             outline: none;
+             border-color: #7aa2f7;
+        }
+        .btn-primary {
+            background-color: #41a6b5;
+            color: #1a1b26;
+            font-weight: bold;
+            border: none;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 0.25rem;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background-color: #56b9c9;
+        }
+        .footer {
+            padding: 1rem;
+            text-align: center;
+            color: #565f89;
+            background-color: #1f202e;
+            border-top: 1px solid #3b4261;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MADMATRIX EXAM PORTAL</h1>
+        <div id="timer">3:00</div>
+    </div>
+    <main class="main-content">
+        <!-- Column 1: Buggy Code -->
+        <div id="buggy-code-container" class="panel">
+            <h2 class="panel-title">1. Buggy Code</h2>
+            <div id="problem-info" class="flex-grow overflow-y-auto">
+                 <h3 id="problem-title" class="text-xl font-bold text-blue-400 mb-2"></h3>
+                 <p id="problem-description" class="mb-4"></p>
+                 <pre id="buggy-code" class="h-full"><code></code></pre>
+            </div>
+        </div>
+
+        <!-- Column 2: Corrected Code -->
+        <div id="editor-container" class="panel">
+            <h2 class="panel-title">2. Corrected Code</h2>
+            <textarea id="editor" class="h-full"></textarea>
+            <button id="run-btn" class="btn-primary">Run Code</button>
+        </div>
+
+        <!-- Column 3: Output -->
+        <div id="output-container" class="panel">
+            <h2 class="panel-title">3. Output</h2>
+            <div id="terminal" class="h-full">Pyodide loaded. Ready to execute Python code.</div>
+        </div>
+    </main>
+    <footer class="footer">
+        INCOGNITO HACK DEVELOPER
+    </footer>
+    <script type="module" src="exam.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const textToFind = "We are aware of the issue";
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(element => {
+                const ownText = Array.from(element.childNodes).filter(node => node.nodeType === Node.TEXT_NODE).map(node => node.textContent).join('');
+                if (ownText.includes(textToFind)) {
+                    element.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
